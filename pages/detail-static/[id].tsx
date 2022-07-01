@@ -4,12 +4,18 @@ import { useRouter } from 'next/router';
 
 const DetailStatic = ({ item }: any) => {
   const router = useRouter();
-  console.log(router);
+
+  console.log('props', item);
+  const click = () => {
+    console.log('abcx');
+  };
   return (
     <div>
       {item && (
         <div className="Detail">
-          <h1 style={{ color: '#fff' }}>with Static Generation</h1>
+          <h1 onClick={click} style={{ color: '#fff' }}>
+            with Static Generation
+          </h1>
           <h1>{item.title}</h1>
           <p>{item.body}</p>
           <p>{item.id}번째 게시글</p>
