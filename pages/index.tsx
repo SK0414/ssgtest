@@ -50,6 +50,9 @@ const Home: NextPage = () => {
       <Link href="/detail-static/101">
         <a>Go to pages/post/[pid].js</a>
       </Link>
+      <Link href="/test123/1">
+        <a>Go to pages/post/[pid].js</a>
+      </Link>
 
       <footer className={styles.footer}>
         <a
