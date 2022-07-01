@@ -6,10 +6,11 @@ const DetailStatic = ({ item }: any) => {
   const router = useRouter();
 
   console.log('router', router);
+  console.log('item', item);
 
   return (
     <div>
-      {item.title && (
+      {item && (
         <div className="Detail">
           <h1 style={{ color: '#fff' }}>with Static Generation</h1>
           <h1>{item.title}</h1>
@@ -31,10 +32,16 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx: any) => {
-  console.log('ctx', ctx);
+  // console.log('ctx', ctx);
   const id = ctx.params.id;
   const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const data = res.data;
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
