@@ -27,13 +27,9 @@ export const getStaticPaths = async () => {
     fallback: true,
   };
 };
-/* ctx {
-  params: { id: '1' },
-  locales: undefined,
-  locale: undefined,
-  defaultLocale: undefined
-} */
+
 export const getStaticProps = async (ctx: any) => {
+  console.log('ctx', ctx);
   const id = ctx.params.id;
   const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const data = res.data;
@@ -44,3 +40,10 @@ export const getStaticProps = async (ctx: any) => {
     },
   };
 };
+
+/* ctx {
+  params: { id: '1' },
+  locales: undefined,
+  locale: undefined,
+  defaultLocale: undefined
+} */
