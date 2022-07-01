@@ -37,7 +37,7 @@ export const getStaticProps = async (ctx: any) => {
   const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const data = res.data;
 
-  if (!data) {
+  if (!res) {
     return {
       notFound: true,
     };
